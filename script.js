@@ -53,7 +53,7 @@ function setCoordinates(coordinates, coordinate, isPositive) {
         if (checkCoord(coordinates[line].end[coordinate])) {
             coordinates[line].end[coordinate] = createCoordinate(coordinates[line].end[coordinate])
         }
-        
+
         if (line === 'top' && Math.abs(coordinates.top.start.x - coordinates.top.end.x) !== TOP_LENGTH) {
             if (Math.abs(coordinates.top.start.x) - Math.abs(coordinates.top.end.x) !== TOP_LENGTH) {
                 coordinates.top.start.x = 0
@@ -62,7 +62,16 @@ function setCoordinates(coordinates, coordinate, isPositive) {
                     coordinates.top.start.x = CANVAS_WIDTH - TOP_LENGTH
                     coordinates.top.end.x = CANVAS_WIDTH
                 } else {
-                    draw({ start: { x: CANVAS_WIDTH - Math.abs(TOP_LENGTH - coordinates.top.end.x), y: coordinates.top.start.y }, end: { x: CANVAS_WIDTH, y: coordinates.top.start.y } })
+                    draw({
+                        start: {
+                            x: CANVAS_WIDTH - Math.abs(TOP_LENGTH - coordinates.top.end.x),
+                            y: coordinates.top.start.y
+                        },
+                        end: {
+                            x: CANVAS_WIDTH,
+                            y: coordinates.top.start.y
+                        }
+                    })
                 }
             }
         }
@@ -71,10 +80,19 @@ function setCoordinates(coordinates, coordinate, isPositive) {
             if (Math.abs(coordinates[line].start.y) - Math.abs(coordinates[line].end.y) !== SIDE_LENGTH) {
                 if (coordinates[line].end.y <= SIDE_LENGTH) {
                     coordinates[line].start.y = 0;
-                    draw({ start: { y: CANVAS_WIDTH - Math.abs(SIDE_LENGTH - coordinates[line].end.y), x: coordinates[line].start.x }, end: { y: CANVAS_WIDTH, x: coordinates[line].end.x } })
+                    draw({
+                        start: {
+                            y: CANVAS_WIDTH - Math.abs(SIDE_LENGTH - coordinates[line].end.y),
+                            x: coordinates[line].start.x
+                        },
+                        end: {
+                            y: CANVAS_WIDTH,
+                            x: coordinates[line].end.x
+                        }
+                    })
                 }
 
-                if(coordinates[line].end.y > SIDE_LENGTH) {
+                if (coordinates[line].end.y > SIDE_LENGTH) {
                     coordinates[line].start.y = coordinates[line].end.y - SIDE_LENGTH;
                 }
             }
