@@ -46,7 +46,7 @@ function setCoordinates(coordinates, coordinate, isPositive) {
     Object.keys(coordinates).forEach(line => {
         coordinates[line].start[coordinate] = coordinates[line].start[coordinate] + step
         coordinates[line].end[coordinate] = coordinates[line].end[coordinate] + step
-        console.log(coordinates)
+
         if (checkCoord(coordinates[line].start[coordinate])) {
             coordinates[line].start[coordinate] = createCoordinate(coordinates[line].start[coordinate])
         }
@@ -76,7 +76,6 @@ function setCoordinates(coordinates, coordinate, isPositive) {
 
                 if(coordinates[line].end.y > SIDE_LENGTH) {
                     coordinates[line].start.y = coordinates[line].end.y - SIDE_LENGTH;
-                    console.log(coordinates[line].start.y)
                 }
             }
 
