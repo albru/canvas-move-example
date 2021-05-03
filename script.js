@@ -55,10 +55,8 @@ function setCoordinates(coordinates, coordinate, isPositive) {
         }
 
         if (line === 'top' && Math.abs(coordinates.top.start.x - coordinates.top.end.x) !== TOP_LENGTH) {
-
             if (Math.abs(coordinates.top.start.x) - Math.abs(coordinates.top.end.x) !== TOP_LENGTH) {
                 coordinates.top.start.x = 0
-
                 if (coordinates.top.end.x === 0) {
                     coordinates.top.start.x = CANVAS_WIDTH - TOP_LENGTH
                     coordinates.top.end.x = CANVAS_WIDTH
@@ -79,12 +77,10 @@ function setCoordinates(coordinates, coordinate, isPositive) {
         }
 
         if (line !== 'top' && Math.abs(coordinates[line].start.y - coordinates[line].end.y) !== SIDE_LENGTH) {
-
             if (Math.abs(coordinates[line].start.y) - Math.abs(coordinates[line].end.y) !== SIDE_LENGTH) {
-
                 if (coordinates[line].end.y <= SIDE_LENGTH) {
                     coordinates[line].start.y = 0;
-
+                    
                     draw({
                         start: {
                             y: CANVAS_WIDTH - Math.abs(SIDE_LENGTH - coordinates[line].end.y),
